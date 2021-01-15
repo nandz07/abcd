@@ -1,0 +1,82 @@
+<style>
+  .abc {
+    margin-left: 360px;
+    /* Same as the width of the sidenav */
+    font-size: 18px;
+    /* Increased text to enable scrolling */
+    padding: 50px 10px 10px;
+
+
+
+  }
+</style>
+<section>
+  <div class="abc">
+    <div class="container">
+      <div class="row ">
+        <a href="/admin/add-vendor" class="btn btn-primary ">Add Vendor</a>
+      </div>
+      <table class="table mt-5" id="vendorTable">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Vendor Name</th>
+            <th scope="col">Shop name</th>
+            <th scope="col">Image</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {{#each vendors}}
+
+          <tr>
+
+            <th scope="row">1</th>
+            <td>{{this.Vendor}}</td>
+            <td>{{this.Shop}}</td>
+            <td><img style="width:50px ;height:50px;" src="/vendor-images/{{this._id}}.jpg" alt=""></td>
+            <td>
+              <a href="/admin/edit-vendor/{{this._id}}" class="btn btn-primary">Edit</a>
+              {{!-- <a href="/admin/delete-vendor?id={{this._id}}&name={{this.Vendor}}"
+                class="btn btn-danger">Delete</a> --}}
+              <a href="/admin/delete-vendor/{{this._id}}" class="btn btn-danger" onclick="return confirm('Delete {{this.Vendor}}')">Delete</a>
+              <a href="" class="btn btn-primary" onclick="blockVendor( '{{this._id}}','{{this.status}}' )"><span id="status">{{this.status}}</span></a>
+            </td>
+
+
+
+          </tr>
+
+          {{/each }}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<script>
+  $(function () {
+    $('#vendorTable').DataTable();
+  });
+  function blockVendor(venId,sts){
+    console.log("vv"+venId)
+    $.ajax({
+      url:'/admin/block-vendor',
+      data:{
+        vendor:venId,
+        status:sts
+
+      },
+      method:'post',
+      success:(response)=>{
+        console.log("hbs side")
+        console.log(response)
+        if(response.status=!Block){
+          document.getElementById('status')='block'
+        }else{
+          document.getElementById('status')='unblock'
+        }
+      }
+    })
+  }
+</script>

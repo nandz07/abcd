@@ -1,0 +1,68 @@
+<style>
+    .card {
+        width: 18rem;
+        border: none;
+        background-image: ;
+        place-items: center;
+        top: 100px;
+        left: 100px;
+        background: linear-gradient(#ffab0f80, #ff330080);
+
+
+    }
+
+    .row {
+        background: url(/images/cookies.jpg);
+        background-size: cover;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border: none;
+        z-index: -1;
+    }
+</style>
+<section>
+
+    <div class="container mt-5 mr-5 ">
+        <div class="row">
+
+            {{#each products}}
+
+            <div class="col-md-4 mt-2 ">
+
+
+                <div class="card">
+
+                    <img class="img-fluid   rounded mt-2 " style="height: 150px; width:170px;"
+                        src="/product-images/{{this._id}}.jpg" alt="Card image cap">
+
+
+                    <div class="card-body">
+                        <a href="/product-details/{{this._id}}">
+                        <h5 class="card-title " style="color: ivory;">{{this.Product}}</h5>
+                        </a>
+                        <h5 class="card-title " style="color: ivory;">₹{{this.Price}}</h5>
+
+
+                        {{!-- <a href="/add-to-cart/?pId={{this._id}}&vId={{Vendor_id}}" class="btn btn-primary">Add to
+                            cart</a> --}}
+                        <button onclick="addToCart('{{this._id}}','{{Vendor_id}}')" class="btn btn-primary mr-5">Add to
+                            cart</button>
+
+                    </div>
+
+                </div>
+            </div>
+
+            {{/each}}
+        </div>
+    </div>
+
+</section>
+<script>
+
+</script>

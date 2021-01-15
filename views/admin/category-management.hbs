@@ -1,0 +1,48 @@
+<style>
+.abc {
+  margin-left: 360px; /* Same as the width of the sidenav */
+  font-size: 18px; /* Increased text to enable scrolling */
+  padding: 50px 10px 10px ;
+  
+  
+  
+}
+</style>
+<section>
+    <div class="abc">
+    <div class="container">
+        <div class="row ">
+            <a href="/admin/add-category" class="btn btn-primary ">Add Category</a>
+        </div>
+        <table class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Category Name</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+     
+    {{#each category}}
+    
+    <tr>
+        
+      <th scope="row">1</th>
+      <td>{{this.Category}}</td>
+      <td>
+        <a href="/admin/edit-category/{{this._id}}" class="btn btn-primary">Edit</a>
+        
+        <a href="/admin/delete-category/{{this._id}}" class="btn btn-danger" onclick="return confirm('Delete {{this.Category}}')">Delete</a>
+      </td>
+      
+      
+      
+    </tr>
+    
+    {{/each   }}
+  </tbody>
+</table>
+    </div>
+    </div>
+</section>

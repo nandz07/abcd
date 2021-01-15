@@ -1,0 +1,40 @@
+<style>
+.abc {
+  margin-left: 360px; /* Same as the width of the sidenav */
+  font-size: 18px; /* Increased text to enable scrolling */
+  padding: 50px 10px 10px ;
+  
+  
+  
+}
+</style>
+<section>
+    <div class="abc">
+    <div class="container">
+        <canvas id="myChart"></canvas>
+    </div>
+    </div>
+</section>
+<script>
+  let myChart = document.getElementById('myChart').getContext('2d');
+
+  let vendorBarChart = new Chart(myChart,{
+    type:'pie',
+    data:{
+      labels:['a','b','c'],
+      datasets:[{
+        label:'population',
+        data:[
+          
+          5,2,3,0
+        ],
+        backgroundColor:[
+          'yellow',
+          'green',
+          'red'
+        ]
+      }]
+    },
+    options:{}
+  });
+</script>

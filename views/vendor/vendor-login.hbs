@@ -1,0 +1,65 @@
+<style>
+    .row{
+        background:url(/images/cake2.jpg) ;
+        background-size: cover;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        border: none;
+        z-index: -1;
+    }
+    .text{
+        color: white;
+    }
+    .text-center{
+        color: white;
+    }
+    .avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 90%;
+    position: absolute;
+    top: -100px;
+    left: calc(50% - 50px);
+}
+.container{
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    height: 290px;
+    width: 70%;
+}
+    
+</style>
+
+    
+<div class="row">
+    
+    <div class="col-md-6 m-auto" >
+        
+        <div class="container">
+            {{!-- <img src="/images/login2.png" class="avatar"> --}}
+            <h2 class="text-center" > Vendor Login</h2>
+            <form action="/vendor/vendor-login" method="POST">
+                {{#if loginErr}}
+                <p class="error">{{loginErr}}</p>
+                {{/if}}
+                <div class="form-group">
+                    <label for="" class="text">Vendor Name</label>
+                    <input type="text" class="form-control" name="Vendor" placeholder="Enter Email" value="appu">
+                </div>
+                <div class="form-group">
+                    <label for="" class="text"> Password</label>
+                    <input type="password" class="form-control" name="Password" placeholder="Password" value="appu">
+                </div>
+                
+
+                <button type="submit" class="btn btn-primary float-right">Login</button>
+
+            </form>
+        
+        </div>
+    </div>
+</div>
+
+

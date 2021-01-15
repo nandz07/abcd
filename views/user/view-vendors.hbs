@@ -1,0 +1,57 @@
+<style>
+.card {
+  width: 18rem;
+  border:none;
+   
+  place-items:center;
+  top:100px; left:100px;
+  background: linear-gradient(#ffab0f80, #ff330080);
+}
+
+.row{
+    background: url(/images/cookies.jpg);
+    background-size: cover;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        border: none;
+        z-index: -1;
+}  
+    
+
+</style>
+    <section>
+
+        <div class="container mt-5 mr-5 ">
+            <div class="row">
+                {{!-- {{#each category}}
+                <p>{{this.ops[0]._id}}</p>,
+                {{/each}} --}}
+                {{#each vendors}}
+                
+                <div class="col-md-4 mt-2 " >
+                    
+                    
+                    <div class="card" >
+                        
+                        <img class="img-fluid   rounded-circle mt-2 "  style="height: 150px; width:170px;" src="/vendor-images/{{this._id}}.jpg" alt="Card image cap">
+                        
+                        
+                        <div class="card-body">
+                            <a href="/view-products/{{this._id}}">
+                            
+                            <h5 class="card-title " style="color: ivory;">{{this.Shop}}</h5>
+                            </a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        
+    </section>
+
+    

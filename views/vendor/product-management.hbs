@@ -1,0 +1,53 @@
+<style>
+.abc {
+  margin-left: 360px; /* Same as the width of the sidenav */
+  font-size: 18px; /* Increased text to enable scrolling */
+  padding: 50px 10px 10px ;
+  
+  
+  
+}
+</style>
+<section>
+    <div class="abc">
+    <div class="container">
+      <div class="row">
+        <a href="/vendor/add-product" class="btn btn-primary ">Add Product</a>
+      </div>
+        <table class="table mt-5">
+          
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Category</th>
+      
+      <th scope="col">Price</th>
+      <th scope="col">Image</th>
+      <th>Action</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {{#each product}}
+    <tr>
+      <th scope="row">1</th>
+      <td>{{this.Product}}</td>
+      <td>{{this.Category}}</td>
+      
+      <td>{{this.Price}}</td>
+      <td><img style="height: 50px; width:50px;" src="/product-images/{{this._id}}.jpg" alt=""></td>
+      
+      <td>
+        <a href="/vendor/edit-product/{{this._id}}" class="btn btn-primary">Edit</a>
+        
+        <a href="/vendor/delete-product/{{this._id}}" class="btn btn-danger" onclick="return confirm('Delete {{this.Product}}')">Delete</a>
+      </td>
+      
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+    </div>
+    </div>
+</section>
